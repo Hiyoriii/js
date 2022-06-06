@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // alert(height + ',' + money + ',' + face);
+
+        /* var height = prompt("请输入你的身高:");
+        var money = prompt("请输入你的财富:");
+        var face = prompt("请输入你的颜值:");
+
+        if(height > 180 && money > 1000 && face > 500){
+            alert("我一定要嫁给他");
+        }else if(height > 180 || money > 1000 || face > 500){
+            alert("嫁吧");
+        }else{
+            alert("不嫁");
+        } */
+
+
+
+        /* var n = 1;
+        while(true){
+            alert(n++);
+            if(n == 10){
+                break;
+            }
+        } */
+
+
+
+        /* var i = 11;
+        while(i <= 10){
+            document.write(i++ + "<br />")
+        }
+        --------无输出 */
+        /* do{
+            document.write(i++ +"<br />");
+        }while(i <= 10);
+        --------输出11 */
+        
+         
+
+        // 定义一个计数器
+        /* var count = 0; 
+        var money = 1000;
+        while(money < 5000){
+            money *=1.05;
+
+            count++;
+        }
+        alert("一共需要"+count+"年"); */
+
+
+
+
+        /* // 打印1-100间7的倍数的个数和总和
+        var sum = 0;
+        var count = 0;
+        for(var i=1 ; i<=100 ; i++){
+            // 判断i是否时7的倍数
+            if(i % 7 == 0){
+                sum +=i;
+                // 使计数器自增1
+                count ++;
+            }
+        }
+        // 输出综合
+        console.log("总和为:"+sum);
+        // 输出总数
+        console.log("总数量为:"+count); */
+
+
+
+
+        // 水仙花数是指一个3位数，它的每个位上的数字的3次幂之和等于它本身。
+        // （例如：1^3+5^3+3^3=153），请打印所有的水仙花数。
+        // 打印所有三位数
+        /* for(var i=100 ; i<1000 ; i++){
+            // 获取百位数字
+            var bai = parseInt(i/100);
+
+            // 获取十位数字
+            var shi = parseInt((i-bai*100)/10);
+        
+            // 获取个位数字
+            var ge = i % 10;
+
+            // 判断i是否时水仙花数
+            if(bai*bai*bai + shi*shi*shi + ge*ge*ge == i){
+                console.log(i);
+            }
+        } */
+        
+
+
+
+        /* // 在页面中接收一个用户输入的数字，并判断该数是否是质数。
+        // 质数：只能被1和它自身整除的数，1不是质数也不是合数，质数必须是大于1的自然数。
+        var num = prompt("请输入一个大于1的整数:");
+        var flag = true;
+        // 判断这个值是否合法
+        if(num <= 1){
+            alert("该值不合法！");
+        }else{
+            // 判断num是否时质数
+            // 判断2-num之间的数
+            for(var i=2 ; i <num ; i++){
+                console.log(i,num);
+
+                if(num % i == 0){
+                    // 如果num能被i整除，则说明num一定不是质数
+                    // 设置flag为false
+                    flag = false;
+                    console.log("**************");
+            
+                }  
+            }
+        // 如果num是质数则输出
+            if(flag){
+                alert(num + "是质数！！！");
+            }else{
+                alert("不是质数");
+            }
+        } */
+
+
+
+
+
+
+        /* for(var i=0 ; i<5 ; i++){
+				
+				
+				 * 在循环的内部再创建一个循环，用来控制图形的宽度
+				 * 目前我们的外部的for循环执行1次，内部的就会执行5次
+				 * 内层循环可以来决定图形的宽度，执行几次图形的宽度就是多少
+				
+				for(var j=0 ; j<i+1 ; j++){
+					document.write("*&nbsp;&nbsp;&nbsp;");
+				}
+				for(var j=0 ; j<5-i ; j++){
+					document.write("*&nbsp;&nbsp;&nbsp;");
+				}
+				
+				//输出一个换行
+				document.write("<br />");
+			} */
+
+
+
+
+        /* for(var i=1 ; i<10 ; i++){
+            // console.log(i);
+            for(var j=1 ; j<i+1 ; j++){
+                document.write(j+"*"+i+"="+i*j+"&nbsp;&nbsp;&nbsp;")
+            }
+            document.write("<br />");
+        } */
+
+
+
+        // 打印1-100的质数
+        
+        
+
+        /* //打印2-100之间所有的数
+			for(var i=2 ; i<=100 ; i++){
+				
+				//创建一个布尔值，用来保存结果，默认i是质数
+				var flag = true;
+				
+				//判断i是否是质数
+				//获取到2-i之间的所有的数
+				for(var j=2 ; j<i ; j++){
+					
+					//判断i是否能被j整除
+					if(i%j == 0){
+						//如果进入判断则证明i不是质数,修改flag值为false
+						flag = false;
+                        // 一旦进入判断，则证明i不可能是质数，此时循环再执行已经没有任何意义了
+                        // 使用break来结束循环
+                        break;
+					}			
+				}
+                //如果是质数，则打印i的值
+				    if(flag){
+					console.log(i);
+				}
+			} */
+
+
+
+        // 练习1、打印1-100之间所有奇数之和
+        /* for(i=1,result=0;i<=100;i++){
+            if(i%2 == 1){	
+                result = result + i;
+                console.log(i,result)
+            }
+        console.log('result='+result);
+        }
+        console.log('result='+result); */
+
+
+
+
+        /* var arr = [];
+        arr = [function(){alert(1)},function(){alert(2)},function(){alert(3)}];
+        console.log(arr[0]);
+        arr[0](); */
+
+        
+        /* var start =  Date.now();
+
+        for(var i=0 ; i<100 ; i++){
+            console.log(i);
+        }
+        var end = Date.now();
+        console.log("执行了" + (end-start)+"毫秒"); */
+
+
+        function fun5(){
+
+            console.log("*******");
+            function fun6(){
+                console.log("I'm fun6");
+            }
+            // return fun6;
+
+            
+        }
+
+        fun5()();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/all.css">
+    <link rel="stylesheet" href="./stylesheet.css">
+    <style>
+        /* 设置整体字体 */
+        body{
+            font: 12px Micresoft Yahei #999;
+        }
+        /* location和shortcut设置浮动之后，高度塌陷，所以需要给内部容器设置clearfix */
+        .clearfix::after,
+        .clearfix::before{
+            content: '';
+            display: table;
+            clear: both;
+        }
+        /* 设置外部容器的样式 */
+        .top-bar-wrapper{
+            width: 100%;
+            height: 30px;
+            background-color: #E3E4E5;
+            /* 设置行高，没有设置高度，使字体垂直居中 */
+            line-height: 30px;
+            border-bottom: 1px #ddd solid;
+        }
+
+        /* 设置内部容器的样式 */
+        .top-bar{
+            /* 固定宽度 */
+            width: 1190px;
+            /* 设置水平居中 */
+            margin: 0  auto;
+            /* 设置相对定位，city-list开启绝对定位后才能相对于top-bar往上移 */
+            position: relative;
+        }
+
+        /* 设置字体的样式 */
+        .top-bar a,
+        .top-bar span,
+        .top-bar i{
+            color: #999;
+            text-decoration: none;
+        }
+        .top-bar a:hover,
+        .top-bar a.highlight{
+            color: #f10215;
+        }
+        
+        /* 设置location向左浮动 */
+        .location{
+            float: left;
+        }
+
+        /* 设置location下的图标 */
+        .location .fas{
+            color: #f10215;
+        }
+
+        /* 设置城市列表的效果 */
+        .location .city-list{
+            width: 320px;
+            height: 436px;
+            background-color: #fefeff;
+            border: 1px solid rgb(204, 204, 204);
+            /* 设置隐藏框架  */
+            display: none;
+            /* 设置绝对定位，使其不占页面的位置 */
+            position: absolute;
+            /* 设置边框阴影 */
+            box-shadow: 0 2px 2px rgba(0, 0, 0, .2);
+            /* 开启绝对定位后，相对于top-bar往上移，高度30加边框1*/
+            top: 31px;
+            /* 由于考虑背景可能有些背景开启定位，因此弹出框要设置较高的层级，使得不会被其他盖住，但是要低于current-city*/
+            z-index: 999;
+        }
+
+        .current-city{
+            padding: 0 10px;
+            padding-bottom: 2px;
+            /* 将边框设置为透明,且将边框写在正常状态，才不会使得鼠标移入current-city时字体变大*/
+            border: 1px solid transparent;
+            border-bottom: none;
+            position: relative;
+            /* 设置层级最高，盖住city-list */
+            z-index: 9999;
+        }
+
+        /* 设置current-city移入鼠标时变成白色边框 */
+        /* 将hover给到location而不是current-city，才不会使得鼠标移到city-list时，current-city不再有白色框 */
+        .location:hover .current-city{
+            background-color: #fcfcfc;
+            padding-bottom: 1px;
+            border: 1px solid rgb(204, 204, 204);
+            border-bottom: none;
+        }
+
+        /* 当鼠标移入location时，让city-list显示 */
+        .location:hover .city-list{
+            display: block;
+        }
+
+        /* 设置shortcut向右浮动 */
+        .shortcut{
+            float: right;
+        }
+
+        /*设置分割线 */
+        .shortcut .line{
+            width: 1px;
+            height: 10px;
+            background-color: #999;
+            margin: 12px 12px 0;
+        }
+
+        /* 设置ul里的li向左浮动，才不会向右浮动后垂直排列 */
+        li{
+            float: left
+        } 
+    </style>
+</head>
+<body>
+    <!-- 创建外部的容器 -->
+    <div class="top-bar-wrapper">
+        <!-- 创建内部的容器 -->
+        <div class="top-bar clearfix">
+            <!-- 左侧的菜单 -->
+            <div class="location"> 
+                <div class="current-city">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <a href="#">北京</a>
+                </div>
+
+                <!-- 放置一个城市列表 -->
+                <div class="city-list"></div>
+            </div>
+            <ul class="shortcut">
+                <li>
+                    <a href="#">你好，请登录</a>
+                    <a class="highlight" href="#">免费注册</a>
+                </li>
+
+                <!-- 分割线 -->
+                <li class="line"></li>
+                <li><a href="#">我的订单</a></li>
+
+                <li class="line"></li>
+                <li><a href="#">我的京东</a></li>
+
+                <!-- 下拉图标 -->
+                <i class="fas fa-angel-down"></i>
+
+                <li class="line"></li>
+                <li><a href="#">京东会员</a></li>
+                
+                <li class="line"></li>
+                <li><a class="highlight" href="#">企业采购</a>
+                <i class="fas fa-angle-down"></i>
+                </li>
+
+                <li class="line"></li>
+                <li>
+                    <span>客户服务</span>
+                    <i class="fas fa-angle-down"></i>
+                </li>
+
+                <li class="line"></li>
+                <!-- 界面不是超链接 -->
+                <li>
+                    <span>网站导航</span>
+                    <i class="fas fa-angle-down"></i>
+                </li>
+
+                <li class="line"></li>
+                <li>
+                    <span>手机京东</span>
+                    <i class="fas fa-angle-down"></i>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

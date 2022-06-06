@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <style>
+
+        body{
+            perspective: 800px;
+        }
+        .box1{
+            height: 200px;
+            width: 200px;
+            margin: 0 auto;
+            background-color: aqua;
+        }
+
+        .box2{
+            background-color: bisque;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            top: 50%;
+        }
+        /* .box3 , .box4{
+            background-color: antiquewhite;
+            float: left;
+            width: 200px;
+            height:400px;
+            margin: 0 10px;
+            transition: all 0.3s;
+        } */
+
+        /* .box3:hover , .box4:hover{
+            box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+            transform: translateY(-20px);
+        } */
+
+        .box5{
+            width: 200px;
+            height: 200px;
+            transition: all 2s;
+            background-color: aquamarine;
+            margin: 100px auto;
+        }
+
+        .box5:hover{
+            transform: translateZ(400px) rotateY(180deg);
+            transform: rotateX(-90deg) translateZ(90px);
+            /* transform: rotateZ(180deg); */
+        }
+
+        .box6{
+            background-color: rgb(255, 255, 255);
+            height: 400px;
+            width: 400px;
+            
+            /* animation:all 60s; */
+        }
+        .box7{
+            height: 200px;
+            width: 4px;
+            background-color: blueviolet;
+            margin: 0 auto;
+        }
+        @keyframes all{
+            from{
+                transform: rotateZ(0);
+            }
+
+            to{
+                transform: rotateZ(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2">aaa</div>
+
+    <div class="box3"></div>
+    <div class="box4"></div>
+    <div class="box5"></div>
+    <div class="box6">
+        <div class="box7"></div>
+    </div>
+
+    <div class="box8"></div>
+</body>
+</html>

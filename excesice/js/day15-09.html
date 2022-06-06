@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+                /*
+				 * 开启box1的绝对定位
+				 */
+				position: absolute;
+        } 
+    </style>
+    <script>
+        window.onload = function(){
+            var box1 = document.getElementById("box1");
+            /*  给box1绑定onmousemove时，只有鼠标在div里面才能移动，
+            当鼠标在div外时无法移动,所以绑定给document */
+            document.onmousemove = function(event){
+
+                //解决兼容问题
+				event = event || window.event;
+					
+					//获取滚动条滚动的距离
+					/*
+					 * chrome认为浏览器的滚动条是body的，可以通过body.scrollTop来获取
+					 * 火狐等浏览器认为浏览器的滚动条是html的，
+					 */
+				var st = document.body.scrollTop || document.documentElement.scrollTop;
+				var sl = document.body.scrollLeft || document.documentElement.scrollLeft;
+
+                // 获取鼠标的坐标
+                var left = event.clientX;
+                var top = event.clientY;
+
+                /* 当给网页设置了长度出现滚动条时，不能用client，要用page
+                    var left = event.pageX;
+                    var top = event.pageY; */
+                     
+                // 设置div的偏移量
+                box1.style.left = left + sl + "px";
+				box1.style.top = top + st + "px";
+            };
+        };
+    </script>
+</head>
+<body>
+    <div id="box1"></div>
+</body>
+</html>
